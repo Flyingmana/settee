@@ -228,6 +228,8 @@ class SetteeDatabase {
     $obj = new stdClass();
     $obj->_id = "_design/" . urlencode($design_doc);
     $view_name = urlencode($view_name);
+    $obj->views = new stdClass();
+    $obj->views->$view_name = new stdClass();
     $obj->views->$view_name->map = $map_src;
     if (!empty($reduce_src)) {
       $obj->views->$view_name->reduce = $reduce_src;
